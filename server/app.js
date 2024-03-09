@@ -8,6 +8,11 @@ const app = express();
 
 connectDb();
 
-app.listen(3000, () => {
-  console.log("Server is running");
+app.listen(process.env.PORT, (error) => {
+  if (error) {
+    console.log("Server connection due to error: ", error);
+  }
+  console.log(`Server is running on port ${process.env.PORT}`);
 });
+
+module.exports = app;
