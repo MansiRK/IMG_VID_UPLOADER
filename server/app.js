@@ -1,10 +1,13 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const connectDb = require("./config/database");
+const Route = require("./router/uploadRoute");
 
 dotenv.config();
 
 const app = express();
+
+app.use("/api", Route);
 
 connectDb();
 
