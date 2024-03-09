@@ -71,3 +71,24 @@ h3 {
 .file-container {
     margin-bottom: 20px;
 }
+
+.uploaded-container {
+    width: 100%;
+    /* Match the width of the formContent */
+    max-width: 100%;
+    /* Ensure the uploaded content does not exceed the width of the formContent */
+    margin-top: 20px;
+    /* Add some margin between the uploaded content and the form */
+}
+
+.uploaded-image img,
+.uploaded-video video {
+    max-width: 100%;
+    /* Set the maximum width to match the container */
+    max-height: 100%;
+    /* Set the maximum height to match the container */
+    display: block;
+    /* Ensure the image or video is displayed as a block element */
+    margin: auto;
+    /* Center the image or video horizontally */
+}
