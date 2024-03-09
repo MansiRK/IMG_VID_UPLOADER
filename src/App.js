@@ -8,6 +8,7 @@ const App = () => {
     <div className="container">
       <h1 className="border">Image and Video Uploader</h1>
       <Form />
+      {/* <MediaDisplay /> */}
     </div>
   );
 };

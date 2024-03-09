@@ -6,6 +6,13 @@
     box-sizing: border-box;
 }
 
+body {
+    min-height: 100vh;
+    /* Minimum height of the viewport */
+    overflow-y: auto;
+    /* Always show vertical scrollbar */
+}
+
 .container {
     margin-top: 15px;
 }
@@ -26,6 +33,7 @@ h3 {
 }
 
 .formContent {
+    height: 60vh;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
@@ -92,3 +100,17 @@ h3 {
     margin: auto;
     /* Center the image or video horizontally */
 }
+
+/* .uploaded-video.autoplay video {
+    animation: autoplay 1s forwards;
+}
+
+@keyframes autoplay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+} */

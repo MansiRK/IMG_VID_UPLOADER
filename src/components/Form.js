@@ -1,36 +1,34 @@
-// Form.js
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import "../style/style.css";
+import MediaDisplay from "./MediaDisplay";
 
 const Form = () => {
-  const [image, setImage] = useState(null);
-  const [video, setVideo] = useState(null);
-  const videoRef = useRef(null);
+  const [image, setImage] = useState({
+    file: null,
+    fileName: "No file chosen",
+  });
+  const [video, setVideo] = useState({
+    file: null,
+    fileName: "No file chosen",
+  });
 
   const handleUploadImage = (event) => {
-    event.stopPropagation(); // Stop the event from propagating
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = "image/*";
-    input.onchange = (event) => {
-      const file = event.target.files[0];
-      setImage(file);
-      event.target.disabled = true; // Disable the file input
-    };
-    input.click();
+    const fileInput = event.target;
+    const file = fileInput.files[0];
+    setImage({ file: file, fileName: file ? file.name : "No file chosen" });
+    fileInput.value = null; // Clear the file input value
   };
 
   const handleUploadVideo = (event) => {
-    event.stopPropagation(); // Stop the event from propagating
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = "video/*";
-    input.onchange = (event) => {
-      const file = event.target.files[0];
-      setVideo(file);
-      event.target.disabled = true; // Disable the file input
-    };
-    input.click();
+    const fileInput = event.target;
+    const file = fileInput.files[0];
+    setVideo({ file: file, fileName: file ? file.name : "No file chosen" });
+    fileInput.value = null; // Clear the file input value
+  };
+
+  const handleMediaClose = () => {
+    setImage({ file: null, fileName: "No file chosen" });
+    setVideo({ file: null, fileName: "No file chosen" });
   };
 
   return (
@@ -46,9 +44,9 @@ const Form = () => {
             id="image-upload"
             className="input-file"
             accept="image/*"
-            onClick={handleUploadImage}
+            onChange={handleUploadImage}
           />
-          <span className="file-name">No file chosen</span>
+          <span className="file-name">{image.fileName}</span>
         </div>
         <div className="file-container">
           <h3 className="file-label">Upload Videos</h3>
@@ -60,11 +58,16 @@ const Form = () => {
             id="video-upload"
             className="input-file"
             accept="video/*"
-            onClick={handleUploadVideo}
+            onChange={handleUploadVideo}
           />
-          <span className="file-name">No file chosen</span>
+          <span className="file-name">{video.fileName}</span>
         </div>
       </div>
+      <MediaDisplay
+        image={image.file}
+        video={video.file}
+        onClose={handleMediaClose}
+      />
     </div>
   );
 };
