@@ -4,6 +4,7 @@ const uploadSchema = new mongoose.Schema({
   cloudinaryID: String,
   contentType: String,
   size: Number,
+  type: String,
   createdAt: {
     type: Date,
     default: Date.now,
