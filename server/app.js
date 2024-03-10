@@ -11,6 +11,11 @@ app.use("/api", Route);
 
 connectDb();
 
+app.post("/test", (req, res) => {
+  // console.log(req);
+  res.send("Received request");
+});
+
 app.listen(process.env.PORT, (error) => {
   if (error) {
     console.log("Server connection due to error: ", error);
