@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../style/style.css";
 import MediaDisplay from "./MediaDisplay";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUpload } from "@fortawesome/free-solid-svg-icons";
 
 const Form = () => {
   const [image, setImage] = useState({
@@ -34,33 +36,35 @@ const Form = () => {
   return (
     <div>
       <div className="formContent">
-        <div className="file-container">
-          <h3 className="file-label">Upload Images</h3>
-          <label htmlFor="image-upload" className="custom-button">
-            Choose File
-          </label>
-          <input
-            type="file"
-            id="image-upload"
-            className="input-file"
-            accept="image/*"
-            onChange={handleUploadImage}
-          />
-          <span className="file-name">{image.fileName}</span>
-        </div>
-        <div className="file-container">
-          <h3 className="file-label">Upload Videos</h3>
-          <label htmlFor="video-upload" className="custom-button">
-            Choose File
-          </label>
-          <input
-            type="file"
-            id="video-upload"
-            className="input-file"
-            accept="video/*"
-            onChange={handleUploadVideo}
-          />
-          <span className="file-name">{video.fileName}</span>
+        <div className="form-content-sm">
+          <div className="file-container ">
+            <h3 className="file-label">Upload Images</h3>
+            <label htmlFor="image-upload" className="custom-button">
+              <FontAwesomeIcon className="icon" icon={faUpload} /> Choose File
+            </label>
+            <input
+              type="file"
+              id="image-upload"
+              className="input-file"
+              accept="image/*"
+              onChange={handleUploadImage}
+            />
+            <span className="file-name">{image.fileName}</span>
+          </div>
+          <div className="file-container">
+            <h3 className="file-label">Upload Videos</h3>
+            <label htmlFor="video-upload" className="custom-button">
+              <FontAwesomeIcon className="icon" icon={faUpload} /> Choose File
+            </label>
+            <input
+              type="file"
+              id="video-upload"
+              className="input-file"
+              accept="video/*"
+              onChange={handleUploadVideo}
+            />
+            <span className="file-name">{video.fileName}</span>
+          </div>
         </div>
       </div>
       <MediaDisplay

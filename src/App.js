@@ -6,7 +6,7 @@ import "./style/style.css";
 const App = () => {
   return (
     <div className="container">
-      <h1 className="border">Image and Video Uploader</h1>
+      <h1 className="heading">Image and Video Uploader</h1>
       <Form />
       {/* <MediaDisplay /> */}
     </div>
