@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
+// Connecting database
 const connectDb = async (req, res) => {
   mongoose
     .connect(process.env.MONGO_DB, {

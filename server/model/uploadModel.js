@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Creating schema
 const uploadSchema = new mongoose.Schema({
   fileName: String,
   contentType: String,
@@ -11,6 +12,7 @@ const uploadSchema = new mongoose.Schema({
   },
 });
 
+// Creating model
 const UploadModel = mongoose.model("FileUpload", uploadSchema);
 
 module.exports = UploadModel;

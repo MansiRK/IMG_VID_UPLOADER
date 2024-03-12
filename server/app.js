@@ -5,16 +5,19 @@ const Route = require("./router/uploadRoute");
 
 dotenv.config();
 
+// Create an instance of Express
 const app = express();
 
 app.use("/api", Route);
 
+//Connecting to DB
 connectDb();
 
 app.get("/", (req, res) => {
   res.send("Image and Video Uploader");
 });
 
+// Start the server
 app.listen(process.env.PORT, (error) => {
   if (error) {
     console.log("Server connection due to error: ", error);
