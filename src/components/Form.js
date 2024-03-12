@@ -52,7 +52,7 @@ const Form = () => {
       <div className="form-content">
         <div className="form-content-sm">
           <div className="file-container ">
-            <h3 className="file-label">Upload Images</h3>
+            <h3 className="file-label">Upload Image</h3>
             <label htmlFor="image-upload" className="upload-button">
               <FontAwesomeIcon className="upload-icon" icon={faUpload} /> Choose
               File
@@ -67,7 +67,7 @@ const Form = () => {
             <p className="file-name">{image.fileName}</p>
           </div>
           <div className="file-container">
-            <h3 className="file-label">Upload Videos</h3>
+            <h3 className="file-label">Upload Video</h3>
             <label htmlFor="video-upload" className="upload-button">
               <FontAwesomeIcon className="upload-icon" icon={faUpload} /> Choose
               File
