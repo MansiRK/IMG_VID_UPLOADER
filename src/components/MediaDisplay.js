@@ -111,25 +111,32 @@ const MediaDisplay = ({ image, video, onClose }) => {
 
   return (
     <div className="upload-container">
+      {/* <h3>{image ? "Uploaded Image" : "Uploaded Video"}</h3> */}
       {image && (
-        <div className="uploaded-image">
-          <button className="close-button" onClick={handleClose}>
-            Close
-          </button>
-          <img src={URL.createObjectURL(image)} alt="Uploaded Image" />
-        </div>
+        <>
+          <h4 className="file-text">Uploaded Image</h4>
+          <div className="uploaded-image">
+            <button className="close-button" onClick={handleClose}>
+              Close
+            </button>
+            <img src={URL.createObjectURL(image)} alt="Uploaded Image" />
+          </div>
+        </>
       )}
 
       {video && (
-        <div className="uploaded-video">
-          <button className="close-button" onClick={handleClose}>
-            Close
-          </button>
-          <video ref={videoRef} controls loop muted autoPlay={isVisible}>
-            <source src={URL.createObjectURL(video)} type={video.type} />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        <>
+          <h4>Uploaded Video</h4>
+          <div className="uploaded-video">
+            <button className="close-button" onClick={handleClose}>
+              Close
+            </button>
+            <video ref={videoRef} controls loop muted autoPlay={isVisible}>
+              <source src={URL.createObjectURL(video)} type={video.type} />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </>
       )}
     </div>
   );
