@@ -36,6 +36,7 @@ const uploadImage = async (req, res) => {
 
     const newUploadImage = new UploadModel({
       // cloudinaryID: file.public_id,
+      fileName: file.originalname,
       contentType: file.mimetype,
       size: file.size,
       type: "image",

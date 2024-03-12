@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../style/style.css";
 import MediaDisplay from "./MediaDisplay";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,6 +14,9 @@ const Form = () => {
     file: null,
     fileName: "No file chosen",
   });
+
+  const [scrollToMedia, setScrollToMedia] = useState(false);
+  const mediaRef = useRef(null);
 
   const handleUploadImage = (event) => {
     const fileInput = event.target;
@@ -34,7 +37,15 @@ const Form = () => {
   const handleMediaClose = () => {
     setImage({ file: null, fileName: "No file chosen" });
     setVideo({ file: null, fileName: "No file chosen" });
+    setScrollToMedia(false);
   };
+
+  useEffect(() => {
+    if (scrollToMedia && mediaRef.current) {
+      mediaRef.current.scrollIntoView({ behavior: "smooth" });
+      setScrollToMedia(false);
+    }
+  }, [scrollToMedia]);
 
   return (
     <div>
@@ -70,6 +81,7 @@ const Form = () => {
           </div>
         </div>
       </div>
+      <div ref={mediaRef}></div>
       <MediaDisplay
         image={image.file}
         video={video.file}
