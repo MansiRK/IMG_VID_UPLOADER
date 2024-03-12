@@ -6,6 +6,7 @@ import { faUpload } from "@fortawesome/free-solid-svg-icons";
 import { uploadImage, uploadVideo } from "../uploadFunction";
 
 const Form = () => {
+  // State variables for image and video
   const [image, setImage] = useState({
     file: null,
     fileName: "No file chosen",
@@ -15,9 +16,10 @@ const Form = () => {
     fileName: "No file chosen",
   });
 
-  const [scrollToMedia, setScrollToMedia] = useState(false);
+  // Reference to scroll to media display section
   const mediaRef = useRef(null);
 
+  // Function to handle image and video upload
   const handleUploadImage = (event) => {
     const fileInput = event.target;
     const file = fileInput.files[0];
@@ -37,15 +39,14 @@ const Form = () => {
   const handleMediaClose = () => {
     setImage({ file: null, fileName: "No file chosen" });
     setVideo({ file: null, fileName: "No file chosen" });
-    setScrollToMedia(false);
   };
 
+  // Effect to scroll to media display when needed
   useEffect(() => {
-    if (scrollToMedia && mediaRef.current) {
+    if (mediaRef.current) {
       mediaRef.current.scrollIntoView({ behavior: "smooth" });
-      setScrollToMedia(false);
     }
-  }, [scrollToMedia]);
+  }, [image, video]);
 
   return (
     <div>
@@ -83,6 +84,7 @@ const Form = () => {
           </div>
         </div>
       </div>
+      {/* Media Display Section */}
       <div ref={mediaRef}></div>
       <MediaDisplay
         image={image.file}

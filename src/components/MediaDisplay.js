@@ -4,9 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const MediaDisplay = ({ image, video, onClose }) => {
+  // State to track visibility of the video element
   const [isVisible, setIsVisible] = useState(false);
+
+  // Reference to the video element
   const videoRef = useRef(null);
 
+  // Effect to handle scrolling and update visibility of video element
   useEffect(() => {
     const handleScroll = () => {
       if (videoRef.current) {
@@ -28,6 +32,7 @@ const MediaDisplay = ({ image, video, onClose }) => {
     };
   }, []);
 
+  // Effect to play/pause video based on visibility
   useEffect(() => {
     if (isVisible && videoRef.current) {
       videoRef.current.play();
@@ -36,13 +41,14 @@ const MediaDisplay = ({ image, video, onClose }) => {
     }
   }, [isVisible]);
 
+  // Function to handle close button click
   const handleClose = () => {
     onClose();
   };
 
   return (
     <div className="upload-container">
-      {/* <h3>{image ? "Uploaded Image" : "Uploaded Video"}</h3> */}
+      {/* Render uploaded image */}
       {image && (
         <>
           <h4 className="file-text">Uploaded Image</h4>
@@ -55,6 +61,7 @@ const MediaDisplay = ({ image, video, onClose }) => {
         </>
       )}
 
+      {/* Render uploaded video */}
       {video && (
         <>
           <h4>Uploaded Video</h4>
