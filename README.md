@@ -55,6 +55,7 @@ MVC architecture is used for this Image and Video Uploading application
 
 1. IDE - VS Code
 2. NodeJS Version above 16.13.2
+3. MongoDb Compass
 
 
 ## Install dependencies for server 
