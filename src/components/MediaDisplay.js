@@ -71,6 +71,8 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import "../style/style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const MediaDisplay = ({ image, video, onClose }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -117,7 +119,7 @@ const MediaDisplay = ({ image, video, onClose }) => {
           <h4 className="file-text">Uploaded Image</h4>
           <div className="uploaded-image">
             <button className="close-button" onClick={handleClose}>
-              Close
+              <FontAwesomeIcon icon={faTimes} />
             </button>
             <img src={URL.createObjectURL(image)} alt="Uploaded Image" />
           </div>
@@ -129,7 +131,7 @@ const MediaDisplay = ({ image, video, onClose }) => {
           <h4>Uploaded Video</h4>
           <div className="uploaded-video">
             <button className="close-button" onClick={handleClose}>
-              Close
+              <FontAwesomeIcon icon={faTimes} />
             </button>
             <video ref={videoRef} controls loop muted autoPlay={isVisible}>
               <source src={URL.createObjectURL(video)} type={video.type} />

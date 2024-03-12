@@ -63,7 +63,7 @@ const Form = () => {
               accept="image/*"
               onChange={handleUploadImage}
             />
-            <span className="file-name">{image.fileName}</span>
+            <p className="file-name">{image.fileName}</p>
           </div>
           <div className="file-container">
             <h3 className="file-label">Upload Videos</h3>
@@ -77,7 +77,7 @@ const Form = () => {
               accept="video/*"
               onChange={handleUploadVideo}
             />
-            <span className="file-name">{video.fileName}</span>
+            <p className="file-name">{video.fileName}</p>
           </div>
         </div>
       </div>
