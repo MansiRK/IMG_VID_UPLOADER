@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const uploadSchema = new mongoose.Schema({
-  cloudinaryID: String,
+  fileName: String,
   contentType: String,
   size: Number,
   type: String,
