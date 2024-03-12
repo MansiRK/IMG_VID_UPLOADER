@@ -11,9 +11,8 @@ app.use("/api", Route);
 
 connectDb();
 
-app.post("/test", (req, res) => {
-  // console.log(req);
-  res.send("Received request");
+app.get("/", (req, res) => {
+  res.send("Image and Video Uploader");
 });
 
 app.listen(process.env.PORT, (error) => {

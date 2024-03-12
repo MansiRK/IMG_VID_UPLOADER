@@ -1,6 +1,5 @@
 import React from "react";
 import Form from "./components/Form";
-import MediaDisplay from "./components/MediaDisplay";
 import "./style/style.css";
 
 const App = () => {
