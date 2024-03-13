@@ -8,11 +8,15 @@ const uploadImage = async (file) => {
     formData.append("file", file);
 
     //Send a POST request
-    const response = await axios.post("/api/image", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    const response = await axios.post(
+      "https://img-vid-uploader-gaj0.onrender.com/api/image",
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
 
     // Response when successful
     console.log(response.data.message);
@@ -30,11 +34,15 @@ const uploadVideo = async (file) => {
     formData.append("file", file);
 
     //Send a POST request
-    const response = await axios.post("/api/video", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    const response = await axios.post(
+      "https://img-vid-uploader-gaj0.onrender.com/api/video",
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
 
     // Response when successful
     console.log(response.data.message);
