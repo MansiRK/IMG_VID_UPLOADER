@@ -2,11 +2,14 @@ const express = require("express");
 const dotenv = require("dotenv");
 const connectDb = require("./config/database");
 const Route = require("./router/uploadRoute");
+const cors = require("cors");
 
 dotenv.config();
 
 // Create an instance of Express
 const app = express();
+
+app.use(cors());
 
 app.use("/api", Route);
 
