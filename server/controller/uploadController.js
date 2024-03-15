@@ -23,6 +23,7 @@ const uploadImage = async (req, res) => {
       contentType: file.mimetype,
       size: file.size,
       type: "image",
+      // createdAt: new Date(),
     });
 
     // Saving image
@@ -60,6 +61,7 @@ const uploadVideo = async (req, res) => {
       contentType: file.mimetype,
       size: file.size,
       type: "video",
+      // createdAt: new Date(),
     });
 
     await newUploadVideo.save();

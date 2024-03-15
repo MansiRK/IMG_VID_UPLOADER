@@ -9,13 +9,8 @@ dotenv.config();
 // Create an instance of Express
 const app = express();
 
-const corsOptions = {
-  origin: "https://willowy-meringue-7068c6.netlify.app/",
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
-
-app.use(cors(corsOptions));
+app.use(express.json());
+app.use(cors());
 
 app.use("/api", Route);
 

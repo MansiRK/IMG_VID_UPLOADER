@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const serverURL = "https://img-vid-uploader-gaj0.onrender.com";
+// const serverURL = "https://img-vid-uploader-gaj0.onrender.com";
 
 // Function to upload an image file
 const uploadImage = async (file) => {
@@ -10,7 +10,7 @@ const uploadImage = async (file) => {
     formData.append("file", file);
 
     //Send a POST request
-    const response = await axios.post(`${serverURL}/api/image`, formData, {
+    const response = await axios.post(`/api/image`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -32,7 +32,7 @@ const uploadVideo = async (file) => {
     formData.append("file", file);
 
     //Send a POST request
-    const response = await axios.post(`${serverURL}/api/video`, formData, {
+    const response = await axios.post(`/api/video`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

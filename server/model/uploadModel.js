@@ -13,6 +13,6 @@ const uploadSchema = new mongoose.Schema({
 });
 
 // Creating model
-const UploadModel = mongoose.model("FileUpload", uploadSchema);
+const UploadModel = mongoose.model("fileuploads", uploadSchema);
 
 module.exports = UploadModel;
