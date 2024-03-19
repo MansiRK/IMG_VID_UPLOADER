@@ -58,6 +58,7 @@ const uploadVideo = async (req, res) => {
 
     // Create a new instance
     const newUploadVideo = new UploadModel({
+      fileName: file.originalname,
       contentType: file.mimetype,
       size: file.size,
       type: "video",
