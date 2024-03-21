@@ -12,5 +12,4 @@ router.post("/image", upload.single("file"), uploadController.uploadImage);
 
 router.post("/video", upload.single("file"), uploadController.uploadVideo);
 
-
 module.exports = router;
